@@ -37,50 +37,33 @@
             <ul>
                 <li>
                     <a href="index.html">
-                        <span class="icon">
-                            <img src="./assets/images/logo.png" alt="">
+                        <span class="title">
+                            <h3 style="color: #ff7800; margin-right: -7px;">ESCROW</h3>
                         </span>
                         <span class="title">
-                            <h3>Investify</h3>
+                            <h3>360</h3>
                         </span>
                     </a>
                 </li>
-
-                <li class="active-link">
-                    <a href="dashboard.html">
-                        <span class="icon">
-                            🏠
-                        </span>
-                        <span class="title">Dashboard</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="fund.html">
-                        <span class="icon">
-                            💰
-                        </span>
-                        <span class="title">Fund Wallet</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="withdraw.html">
-                        <span class="icon">
-                            🏛️
-                        </span>
-                        <span class="title">Withdrawal</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="settings.html">
-                        <span class="icon">
-                            ⚙️
-                        </span>
-                        <span class="title">Profile</span>
-                    </a>
-                </li>
+                <div>
+                    <li class="active-link">
+                        <a href="dashboard.html">
+                            <span class="icon">
+                                <i class="fa fa-home" style="color: #ff7800;"></i>
+                            </span>
+                            <span class="title">Transaction</span>
+                        </a>
+                    </li>
+    
+                    <li>
+                        <a href="withdraw.html">
+                            <span class="icon">
+                                <i class="fa fa-bank" style="color: #ff7800;"></i>
+                            </span>
+                            <span class="title">Withdrawal</span>
+                        </a>
+                    </li>
+                </div>
 
                 <li>
                     <a id="logoutButton">
@@ -106,7 +89,7 @@
 
                 <div class="settings">
                     <a href="settings.html">
-                        ⚙️
+                        
                     </a>
                 </div>
             </div>
@@ -115,22 +98,11 @@
                 <div class="card">
                     <div id="balance">
                         <div class="numbers">-</div>
-                        <div class="cardName">Balance</div>
+                        <div class="cardName">Pending balance</div>
                     </div>
 
                     <div class="iconBx">
                         💼
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div id="referrals">
-                        <div class="numbers">-</div>
-                        <div class="cardName">Refferals</div>
-                    </div>
-
-                    <div class="iconBx">
-                        👨‍👦‍👦
                     </div>
                 </div>
             </div>
@@ -142,22 +114,55 @@
             info.investify.traders@gmail.com
           </p>
           <div class="deposit-container" id="fund">
-            <h2>📥FUND WALLET</h2>
+            <h2>📥NEW TRANSACTION</h2>
             <form id="depositForm">
-              <label for="crypto">Select Cryptocurrency:</label>
+                <label for="role">Role in Transaction</label>
+              <select id="role" name="crypto" required>
+                <option value="" disabled selected></option>
+                <option value="Selling">Seller</option>
+                <option value="Buying">Buyer</option>
+              </select>
+
+              <label for="crypto">Your Payment Method</label>
               <select id="crypto" name="crypto" required>
                 <option value="" disabled selected></option>
                 <option value="bitcoin">Bitcoin (BTC)</option>
                 <option value="ethereum">Ethereum (ETH)</option>
                 <option value="tether">USDT (Trc20)</option>
               </select>
-  
-              <label for="amount">Amount($):</label>
+
+              <label for="amount">Payment Amount:</label>
               <input
                 type="number"
                 id="fund-amount"
-                min="50"
+                min="0"
                 name="amount"
+                required
+              />
+  
+              <label for="email">Email of Second Party:</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+              />
+
+              <label for="text">Crypto to be traded:</label>
+              <input
+                type="text"
+                id="crypto-trad"
+                min="0"
+                name="text"
+                required
+              />
+
+              <label for="cost">Unit of crypto:</label>
+              <input
+                type="number"
+                id="crypto-cost"
+                min="0"
+                name="cost"
                 required
               />
   
@@ -195,7 +200,7 @@
           </div>
   
           <div class="crypto-display" id="tether">
-            <h2>💲USDT ADDRESS</h2>
+            <h2>USDT ADDRESS</h2>
             <img src="./assets/images/usdt.jpeg" alt="" />
             <h3 id="re-fund-amount">-</h3>
             <p class="fund-description">

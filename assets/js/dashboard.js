@@ -71,7 +71,7 @@ function displayUserData(uid) {
         balanceElement.innerHTML = `
           <div id="balance">
             <div class="numbers">$${balance}.00</div>
-            <div class="cardName">Balance</div>
+            <div class="cardName">Pending balance</div>
           </div>
         `;
 
