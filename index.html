@@ -18,6 +18,19 @@
     <link rel="stylesheet" href="assets/css/style-starter.css" />
     <link rel="icon" href="./assets/images/logo.png" />
     <!--//Template-CSS -->
+
+    <!-- Emailjs -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "l6NR8HfFNhsOkGZjO",
+        });
+      })();
+    </script>
   </head>
 
   <body>
@@ -491,5 +504,6 @@
     <!-- //disable body scroll which navbar is in active -->
     <!-- //bootstrap -->
     <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/email.js"></script>
   </body>
 </html>
