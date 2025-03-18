@@ -4,6 +4,7 @@
   text-align: center;
   padding: 1rem;
   color: var(--pry-color);
+  padding: 0 10%;
 }
 
 .deposit-container {

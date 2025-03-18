@@ -8,6 +8,10 @@
   font-weight: bold;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* Remove the light blue outline on mobile devices */
 * {
   outline: none;
@@ -39,23 +43,18 @@ input {
   /* Standard */
 }
 
-a {
-  text-decoration: none;
-}
-
 :root {
   --white: #fff;
   --gray: #f5f5f5;
   --black1: #222;
   --black2: #f3f3f3;
-  --pry-color: #ff7800;
+  --pry-color: #000;
 }
 
 body {
   min-height: 100vh;
   overflow-x: hidden;
   font-family: "Poppins";
-  color: var(--pry-color);
 }
 
 .container {
@@ -232,6 +231,10 @@ body {
   top: 0;
   left: 0;
   width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
 .navigation ul li {
@@ -242,14 +245,12 @@ body {
   border-bottom-left-radius: 30px;
 }
 
-.navigation ul li:hover,
-.navigation ul li.hovered {
+.navigation ul li:hover {
   background-color: var(--white);
 }
 
 .navigation ul li:nth-child(1) {
   margin-top: -5px;
-  margin-bottom: 40px;
 }
 
 .navigation ul li a {
@@ -261,8 +262,7 @@ body {
   color: var(--pry-color);
 }
 
-.navigation ul li:hover a,
-.navigation ul li.hovered a {
+.navigation ul li:hover a {
   color: var(--pry-color);
 }
 
@@ -294,15 +294,13 @@ body {
   position: relative;
   display: block;
   padding: 0 10px;
-  height: 60px;
   line-height: 67px;
   text-align: start;
   white-space: nowrap;
 }
 
 /* --------- curve outside ---------- */
-.navigation ul li:hover a::before,
-.navigation ul li.hovered a::before {
+.navigation ul li:hover a::before {
   content: "";
   position: absolute;
   right: 0;
@@ -315,8 +313,7 @@ body {
   pointer-events: none;
 }
 
-.navigation ul li:hover a::after,
-.navigation ul li.hovered a::after {
+.navigation ul li:hover a::after {
   content: "";
   position: absolute;
   right: 0;
@@ -442,7 +439,7 @@ body {
 
 .withdrawal-container button {
   padding: 10px;
-  background-color: #ff7800;
+  background-color: #000;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -450,7 +447,7 @@ body {
 }
 
 .withdrawal-container button:hover {
-  background-color: #0a2910;
+  background-color: #111111;
 }
 
 @media (max-width: 600px) {
