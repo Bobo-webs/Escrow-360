@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forgot Password</title>
+    <link rel="icon" href="./assets/images/logo-icon.jpg" />
+    <link rel="stylesheet" href="./assets/css/forgot.css" />
+  </head>
+
+  <body>
+    <!-- ================= Loading ================== -->
+    <div id="progress-bar-container">
+      <div id="progress-bar"></div>
+    </div>
+
+    <form class="loginDiv" id="loginDiv">
+      <a href="index.html" class="logo-wrapper">
+        <h2>ESCROW</h2>
+        <h2 style="color: #000">360</h2>
+      </a>
+      <div class="inputField">
+        <input type="email" id="email" required />
+        <label>Email</label>
+      </div>
+      <p class="return"><a href="login.html">Go back to login</a></p>
+      <button id="submit" class="login">Reset</button>
+    </form>
+
+    <!-- ------------------------------- Error and Success Popup -------------------------- -->
+    <div id="popup-success" class="popup">
+      <div class="popup-content">
+        <img src="./assets/images/checked.png" alt="" />
+        <h2>Login Successful!</h2>
+        <p>Please wait...</p>
+      </div>
+    </div>
+    <div id="popup-error" class="popup">
+      <div class="popup-content">
+        <img src="./assets/images/cancel.png" alt="" />
+        <h2>Login Failed</h2>
+        <p>Invalid email or password. Please try again.</p>
+        <button class="close" id="close-popup-error">OK</button>
+      </div>
+    </div>
+    <div id="sent-email" class="popup">
+      <div class="popup-content">
+        <h2>Email Sent✅</h2>
+        <p>Check your email for password reset link</p>
+        <button class="close" id="close-sent">OK</button>
+      </div>
+    </div>
+
+    <!-- ---------------------------- Validation Script --------------------------- -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
+      import {
+        getAuth,
+        sendPasswordResetEmail,
+      } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyBfeFvU5DmYb8B_s3AO7V2mNbxjteRoQr8",
+        authDomain: "escrow-360.firebaseapp.com",
+        databaseURL: "https://escrow-360-default-rtdb.firebaseio.com",
+        projectId: "escrow-360",
+        storageBucket: "escrow-360.firebasestorage.app",
+        messagingSenderId: "913818328490",
+        appId: "1:913818328490:web:4fc589ecc7f6dd86a35fd3",
+        measurementId: "G-KKQ4Y92E5S",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      // Add event listener to the form
+      document
+        .getElementById("loginDiv")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const email = document.getElementById("email").value.trim();
+
+          if (!email) {
+            alert("Please enter a valid email address.");
+            return;
+          }
+
+          sendPasswordResetEmail(auth, email)
+            .then(() => {
+              document.getElementById("sent-email").style.display = "flex";
+            })
+            .catch((error) => {
+              const errorMessage = error.message;
+              alert(`Error: ${errorMessage}`);
+            });
+        });
+
+      document
+        .getElementById("close-sent")
+        .addEventListener("click", function () {
+          document.getElementById("sent-email").style.display = "none";
+        });
+    </script>
+  </body>
+</html>
